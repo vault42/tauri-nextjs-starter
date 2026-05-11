@@ -1,41 +1,78 @@
+# Tauri + Next.js Starter Template
 
-# Next.js Starter Template
+A modern, production-ready desktop application starter using **Tauri 2.0** and **Next.js 16**.
 
-## Project Purpose
+## 🚀 Tech Stack
 
-This project provides a ready-to-use Next.js starter template for quickly building modern web applications. It comes with a pre-configured frontend tech stack and best practices, making it suitable for personal projects, enterprise apps, or learning purposes.
+### Frontend
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Icons**: [Phosphor Icons](https://phosphoricons.com/)
+- **Theme**: [next-themes](https://github.com/pacocoursey/next-themes) (Light/Dark mode)
 
+### Desktop (Backend)
+- **Engine**: [Tauri 2.0](https://tauri.app/)
+- **Language**: [Rust](https://www.rust-lang.org/)
 
-## Tech Stack
-
-- **Next.js 16**: React-based framework for SSR and SSG
-- **TypeScript**: Type-safe JavaScript superset
-- **Tailwind CSS 4**: Utility-first CSS framework with dark mode support
-- **shadcn/ui**: Customizable UI component library
-- **next-themes**: Theme switching (light/dark mode) support
-- **ESLint + @antfu/eslint-config**: Code quality and style checking
-- **pnpm**: Fast, disk space efficient package manager
+### Quality & Automation
+- **Linting**: [ESLint](https://eslint.org/) with [@antfu/eslint-config](https://github.com/antfu/eslint-config)
+- **CI/CD**: GitHub Actions (Linting, Rust Check)
 
 ---
 
-## Getting Started
+## 📂 Project Structure
 
-Install dependencies and start the development server:
+- `src/`: Next.js frontend source code.
+- `src-tauri/`: Rust backend source code and Tauri configuration.
+- `.github/`: CI/CD workflows.
 
+---
+
+## 🛠️ Getting Started
+
+### Prerequisites
+- [Node.js 22+](https://nodejs.org/)
+- [pnpm 9+](https://pnpm.io/)
+- [Rust toolchain](https://www.rust-lang.org/tools/install)
+- [Tauri prerequisites](https://tauri.app/v1/guides/getting-started/prerequisites) (System dependencies for your OS)
+
+### Installation
 ```bash
 pnpm install
+```
+
+### Development
+Start the development server with Tauri:
+```bash
+pnpm tauri dev
+```
+*Note: This will launch a desktop window with hot-reloading for both frontend and backend.*
+
+For web-only development:
+```bash
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
-
-You can start editing the page by modifying `src/app/page.tsx`. The page will auto-update as you save changes.
+### Build
+To build the production-ready desktop application:
+```bash
+pnpm tauri build
+```
 
 ---
 
-## Useful Links
+## 🤖 Automation & CI/CD
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [React Documentation](https://react.dev/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/)
-- [shadcn/ui Docs](https://ui.shadcn.com/)
+This project is configured with GitHub Actions to ensure code quality:
+
+1.  **Continuous Integration**: Every Push/PR triggers `.github/workflows/ci.yml` which runs:
+    - `pnpm lint`: Frontend style and quality check.
+    - `cargo check`: Rust backend validation.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.

@@ -1,20 +1,20 @@
 version: 2
 updates:
-  # 自动更新根目录下的 npm/pnpm 依赖
+  # Maintain dependencies for npm/pnpm in the root directory
   - package-ecosystem: npm
     directory: /
     schedule:
       interval: weekly
     open-pull-requests-limit: 10
 
-  # 自动更新 src-tauri 目录下的 Rust/Cargo 依赖
+  # Maintain dependencies for Rust/Cargo in the src-tauri directory
   - package-ecosystem: cargo
     directory: /src-tauri
     schedule:
       interval: weekly
     open-pull-requests-limit: 10
 
-  # 自动更新 GitHub Actions 脚本 (如有)
+  # Maintain GitHub Actions workflows
   - package-ecosystem: github-actions
     directory: /
     schedule:

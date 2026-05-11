@@ -9,7 +9,7 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    # 仅当 PR 由 dependabot 发起时运行
+    # Only run for PRs initiated by Dependabot
     if: github.event.pull_request.user.login == 'dependabot[bot]'
     steps:
       - name: Dependabot metadata
@@ -19,7 +19,7 @@ jobs:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: Approve and Enable auto-merge for patch updates
-        # 仅针对 patch 级别的更新执行
+        # Only execute for patch-level updates
         if: steps.metadata.outputs.update-type == 'version-update:semver-patch'
         run: |
           gh pr review --approve "$PR_URL"
